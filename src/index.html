@@ -13,13 +13,42 @@
 
   <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
 
+
+  <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js"></script>
+
+  <link href = "/bootstrap/css/bootstrap.min.css" rel = "stylesheet">
+      <script src = "/scripts/jquery.min.js"></script>
+      <script src = "/bootstrap/js/bootstrap.min.js"></script>
+      
   <!-- add to homescreen for ios -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 </head>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '509862136435564',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v4.0'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
 
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 <body>
   <app-root></app-root>
+  
+
 </body>
 
 </html>

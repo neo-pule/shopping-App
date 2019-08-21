@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>edit</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<ion-icon name="arrow-back" routerLink="/home"></ion-icon>
+
+
+  <ion-item>
+    <ion-label position="floating" text-wrap >Name :</ion-label>
+    <ion-input [(ngModel)]="ObjRef.name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label position="floating" >Price :</ion-label>
+      <ion-input [(ngModel)]="ObjRef.price"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating" >Type :</ion-label>
+        <ion-input [(ngModel)]="ObjRef.type"></ion-input>
+    </ion-item>
+
+    <ion-button (click)="update1(ObjRef,ObjRef.key)"> Update</ion-button>
+    <ion-button (click)="delete1(ObjRef.key)"> Delete</ion-button>
+<!--    
+<ul>
+    <ion-item>
+      Product ID : {{nkey}}
+        
+      </ion-item>
+      <ion-item>
+          Name : {{name1}}
+            
+          </ion-item>
+          <ion-item>
+              Price : {{nPrice}}
+                
+              </ion-item>
+              <ion-item>
+                  Type :  {{nType}}
+                    
+                  </ion-item>
+</ul> -->
+</ion-content>

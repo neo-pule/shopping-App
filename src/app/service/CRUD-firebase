@@ -1,0 +1,24 @@
+this.profileService.getProfiles().subscribe(data => {
+     this.data = true;
+    this.profileList = data.map ( e => {
+      return{
+        key: e.payload.doc.id,
+        ...e.payload.doc.data()
+      } as Profile;
+    });
+    console.log(this.profileList);
+      for (const profileInfo of this.profileList) {
+        if (this.user.uid === profileInfo.userId) {
+          this.profileUser =   profileInfo;
+          // this.profileClass.name = this.profileUser.name;
+          // this.profileClass.surname = this.profileUser.surname;
+          // this.profileClass.dob = this.profileUser.dob;
+          // this.profileClass.gender = this.profileUser.gender;
+          console.log('Test', this.profileUser);
+         }
+    }
+   });
+
+getProfiles()  {
+   return this.fireStore.collection('Profile').snapshotChanges();
+ }

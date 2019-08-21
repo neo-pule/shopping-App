@@ -1,0 +1,123 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>signIn</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding color="medium">
+ 
+
+    
+    
+    <ion-card *ngIf="afAuth.auth.currentUser; else logi" >
+<ion-card-content >
+  <!-- <section *ngIf="afAuth.auth.currentUser; else logi" > -->
+      <ion-label position="fixed" >Logged In</ion-label>
+    <h3>Welcome {{afAuth.auth.currentUser.email}}</h3>
+    <ion-label position="fixed" >{{afAuth.auth.currentUser.uid}}</ion-label>
+    <br>
+    <ion-label position="fixed" >{{afAuth.auth.currentUser.phoneNumber}}</ion-label>
+    <br>
+    <ion-label position="fixed" >{{afAuth.auth.currentUser.displayName}}</ion-label>
+    <br>
+    <ion-button (click)="logout()">Log Out</ion-button>
+    <ion-button routerLink="/profile">Update</ion-button>
+ 
+</ion-card-content>
+</ion-card>
+      
+  <ion-card>
+      
+      <!-- <ion-button fill="outline" slot="end">View</ion-button> -->
+      <ng-template #logi>
+    <ion-card-content>
+      <ion-icon name="contact" ></ion-icon>
+      <ion-item>
+        <ion-label>{{switch}}</ion-label>
+          <ion-label position="floating" >Email</ion-label>
+          <ion-input  placeholder="Enter Email" [(ngModel)]="email" ng-required="true"></ion-input>
+      </ion-item>
+      
+      <!-- <section  *ngIf="switch; else pass"> -->
+      <ion-item *ngIf="switch; else logi">
+  
+          <ion-label position="floating" >Password :</ion-label>           
+              
+                  <ion-row><ion-col padding><ion-input  placeholder="Enter Password" [(ngModel)]="pass" ng-required="true" type="password"> </ion-input></ion-col><ion-col><ion-icon name="eye-off" (click)="toggleShow()" ></ion-icon></ion-col></ion-row>
+                
+      </ion-item>
+      <!-- <ng-template #logi>
+          <ion-item>
+              <ion-label>{{switch}}</ion-label>
+                <ion-label position="floating" >Email</ion-label>
+                <ion-input  placeholder="Enter Email" [(ngModel)]="email" ng-required="true"></ion-input>
+            </ion-item>
+            <ion-item >
+              
+                <p>hide Password</p>
+                <ion-label position="floating" >Password :</ion-label>           
+                    
+                        <ion-row><ion-col padding><ion-input  placeholder="Enter Password" [(ngModel)]="pass" ng-required="true"> </ion-input></ion-col><ion-col><ion-icon name="eye" (click)="toggleHide()" ></ion-icon></ion-col></ion-row>
+                      
+            </ion-item>
+          <a routerLink="/">Forgot Password</a>
+      
+          <div class="div">
+              <ion-button color="danger" (click)="login()" [disabled] = "$invalid" >Login</ion-button>
+          </div>
+       
+         
+      </ng-template> -->
+  
+  <ng-template #logi>  
+  
+      <ion-item >
+  
+          <ion-label position="floating" >Password :</ion-label>                          
+                  <ion-row><ion-col padding><ion-input  placeholder="Enter Password" [(ngModel)]="pass" ng-required="true"> </ion-input></ion-col><ion-col><ion-icon name="eye" (click)="toggleHide()" ></ion-icon></ion-col></ion-row>
+                  
+      </ion-item>
+  
+  </ng-template>
+      
+  <br>
+<p>Don't have an account <a routerLink="/sign-up">sign up</a> now</p>
+
+    </ion-card-content>
+  </ng-template>
+  </ion-card>
+<hr>
+<ion-card>
+  
+    <ion-icon name="mail-open" slot=end></ion-icon>
+  
+  <br>
+    <ion-item>
+        <ion-label position="floating" >Phone Number</ion-label>
+        <ion-input  placeholder="Enter Phone Number" (click)="listen()" [(ngModel)]="phone"></ion-input>
+    </ion-item>
+<br>
+
+<div id="recaptcha-container"></div>
+<br>
+<ion-item>
+<ion-button color="danger" (click)="loginP()" fill="outline" slot="end" >Send Pin</ion-button>
+</ion-item>
+<br>
+
+<ion-item>
+    <ion-label position="floating" fill="outline" slot="end">Enter Pin</ion-label>
+    
+    <ion-input  placeholder="Enter OTP code" (click)="sendCode()" [(ngModel)]="OTP"></ion-input>
+  </ion-item>
+<ion-item>
+    <ion-button (click)="loginCode()">Submit Code</ion-button>
+  </ion-item>
+</ion-card>
+
+  <br>
+
+    <ion-button (click)="facebookL()"fill="outline"  >Facebook Log</ion-button>
+    <ion-button (click)="twitterL()" fill="outline" >Twitter Log</ion-button>
+</ion-content>
+<router-outlet></router-outlet>

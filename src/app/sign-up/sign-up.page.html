@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>sign-up</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  
+  <br>
+  <br>
+<ion-label position="fixed" style="position :center" >Please fill in this form to create an account.</ion-label>
+
+<ion-item>
+  <ion-label position="floating" text-wrap >Email</ion-label>
+  <ion-input [(ngModel)]="email" placeholder="Enter Email"></ion-input>
+</ion-item>
+
+
+<ion-item>
+  <ion-label position="floating" text-wrap >Password</ion-label>
+  <ion-input [(ngModel)]="pass" placeholder="Enter Password" type="password"></ion-input>
+</ion-item>
+<br>
+<p>Already have an account <a routerLink="/sign-in">sign in</a> now.</p>
+<br>
+<!-- <ion-item>
+  <ion-label position="floating" text-wrap >Repeat Password</ion-label>
+  <ion-input [(ngModel)]="ObjRef.name" placeholder="Repeat Password"></ion-input>
+</ion-item> -->
+<div align="center">
+<!-- <ion-button routerLink="/sign-in" color="success">Cancel</ion-button> -->
+<ion-button color="danger" (click)="login()">Sign Up</ion-button>
+</div>
+
+
+</ion-content>
